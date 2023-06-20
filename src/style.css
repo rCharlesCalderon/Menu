@@ -1,0 +1,67 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    list-style-type: none;
+}
+@font-face {
+    font-family:Mukta;
+    src: url("./fonts/Mukta-Regular.ttf");
+}
+
+body{
+   height: 100vh;
+   background: grey;
+}
+header{
+height: 10%;
+border: 1px black solid;
+display: flex;
+background-color: #4C516D;
+}
+
+.drop-menu-container {
+   height: 50%;
+    border: 2px green solid;
+    width: 100%;
+    display: flex;
+    align-self: flex-end;
+    background: whitesmoke;
+   flex-direction: row-reverse;
+}
+.list {
+    display: flex;
+    gap: 10px;
+    font-size: 1.2em;
+    font-family: Mukta;
+    margin-right: 40px;
+
+}
+
+.list li p:hover{
+    border-bottom: 6px black solid;
+    
+}
+.drop-down{
+   display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.drop-down p {
+    display: flex;
+    flex-direction: row;
+    margin-left: 5px;
+}
+.drop-down img {
+    margin-top: 5px;
+    height: 20px;
+    width: 20px;
+
+}
+
+.more-setting {
+    display: none;
+  padding-left: 5px;
+  padding-right: 5px;
+  background: whitesmoke;
+}
