@@ -1,4 +1,5 @@
 *{
+    border: 1px black solid;
     margin: 0%;
     padding: 0%;
     list-style-type: none;
@@ -11,57 +12,66 @@
 body{
    height: 100vh;
    background: grey;
-}
-header{
-height: 10%;
-border: 1px black solid;
-display: flex;
-background-color: #4C516D;
+   display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.drop-menu-container {
-   height: 50%;
+
+.navigation {
+    margin-top: 5em;
+   height: 5%;
     border: 2px green solid;
     width: 100%;
     display: flex;
-    align-self: flex-end;
     background: whitesmoke;
-   flex-direction: row-reverse;
+   align-items: center;
+   justify-content: center;
+    font-size: 1.1em;
+    flex-direction: column;
 }
-.list {
+.nav-first {
     display: flex;
-    gap: 10px;
-    font-size: 1.2em;
-    font-family: Mukta;
-    margin-right: 40px;
-
-}
-
-.list li p:hover{
-    border-bottom: 6px black solid;
+    border: 1px 0px 1px 0px black solid;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px black solid;
+     gap: 45px;
+    width: 50%;
     
 }
-.drop-down{
-   display: flex;
-  flex-direction: column;
-  text-align: center;
-}
 
-.drop-down p {
+.more li{
     display: flex;
-    flex-direction: row;
-    margin-left: 5px;
-}
-.drop-down img {
-    margin-top: 5px;
-    height: 20px;
-    width: 20px;
 
+    
 }
 
-.more-setting {
+.more img {
+    display: flex;
+    height: 22px;
+    
+}
+
+
+.show-more {
     display: none;
-  padding-left: 5px;
-  padding-right: 5px;
-  background: whitesmoke;
+    visibility: hidden;
+    width: 100%;
+    border: 1px red solid;
+    height: 50px;
+    width: 50%;
+       align-items: center;
+      font-size: 1.1em;
+    gap: 45px;
+}
+.show-more li {
+    margin-left: 28px;
+}
+
+.test {
+    border: 1px red solid;
+    height: 100px;
+    width: 100px;
 }

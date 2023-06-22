@@ -1,14 +1,14 @@
 import _ from "lodash";
 import "./style.css";
 
-const hoverMore = (() => {
-  let more = document.querySelector(".drop-down");
+const ToggleMore = (() => {
+  let more = document.querySelector(".more");
   more.addEventListener("click", () => {
-    let settingNav = document.querySelector(".more-setting");
-    if (settingNav.style.display === "none") {
-      settingNav.style.display = "block";
+    let extraNav = document.querySelector(".show-more");
+    if (window.getComputedStyle(extraNav, "hidden")) {
+      extraNav.style.visibility = "visible";
     } else {
-      settingNav.style.display = "none";
+      extraNav.style.visibility = "hidden";
     }
   });
 })();
