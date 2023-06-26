@@ -10,19 +10,23 @@ const ToggleMore = (() => {
 })();
 
 const imageFlow = (() => {
-  let image = document.querySelector(".imageSlideContainer");
-  changeImg();
-})();
-
-function changeImg() {
-  let image = document.querySelector(".imageSlideContainer");
-  let image1 = "../src/images/castle.png";
-  let image2 = "../src/images/pyramid.png";
-  let image3 = "../src/images/stonehenge.png";
+  let imageContainer = document.querySelector(".imageSlideContainer");
+  let image1 = "../src/images/pyramid.png";
+  let image2 = "../src/images/stonehenge.png";
+  let image3 = "../src/images/castle.png";
   let imageArray = [image1, image2, image3];
   let slideCounter = 0;
-  console.log(image);
-}
+
+  setInterval(function () {
+    imageContainer.style.backgroundImage = `url("${imageArray[slideCounter]}")`;
+    slideCounter++;
+    if (slideCounter == imageArray.length) {
+      slideCounter = 0;
+    }
+  }, 3000);
+})();
+
+
 
 const imageSlider = (() => {
   let imageSlide = document.querySelector(".imageSlideContainer");

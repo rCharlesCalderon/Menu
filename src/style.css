@@ -97,6 +97,10 @@ body{
     height: 35%;
     width: 55%;
     background-image: url("../src/images/castle.png");
+   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
 }
 
 .imageSlideContainer p {
