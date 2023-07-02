@@ -1,4 +1,5 @@
 const path = require("path");
+import html from "../index.html";
 
 module.exports = {
   entry: "./src/index.js",
@@ -19,6 +20,10 @@ module.exports = {
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: "asset/resource",
+      },
+      {
+        test: /\.html$/i,
+        loader: "html-loader",
       },
     ],
   },
