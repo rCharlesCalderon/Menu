@@ -140,3 +140,7 @@ body{
      width: 15px;
     border-radius: 50%;
 }
+
+.active {
+    background-color: #696969;
+}

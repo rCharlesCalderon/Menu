@@ -1,6 +1,27 @@
 import _, { concat, toNumber } from "lodash";
 import "./style.css";
 
+const counter = (() => {
+  let slideCounter = 0;
+  function increment() {
+    if (slideCounter >= 3) {
+      slideCounter = 0;
+    }
+    slideCounter++;
+    return slideCounter;
+  }
+
+  function deincrement() {
+    if (slideCounter <= 1) {
+      slideCounter = 4;
+    }
+    slideCounter--;
+    return slideCounter;
+  }
+
+  return { increment, deincrement };
+})();
+
 const ToggleMore = (() => {
   let more = document.querySelector(".more");
   more.addEventListener("click", () => {
@@ -9,34 +30,42 @@ const ToggleMore = (() => {
   });
 })();
 
+function imgNumber() {
+  //get da number
+  let imageContainer = document.querySelector(".imageSlideContainer");
+  let imageNumber = imageContainer.getAttribute("image");
+  //
+  let imgNum = document.querySelector(".image-number");
+  imgNum.textContent = `${imageNumber}/3`;
+}
+
+function threeDots() {
+  let imageContainer = document.querySelector(".imageSlideContainer");
+  let dots = document.querySelectorAll(".dot");
+  dots.forEach((dot) => {
+    dot.classList.remove("active");
+  });
+  if (imageContainer.getAttribute("image") === "1") {
+    dots[0].classList.add("active");
+  } else if (imageContainer.getAttribute("image") === "2") {
+    dots[1].classList.add("active");
+  } else if (imageContainer.getAttribute("image") === "3") {
+    dots[2].classList.add("active");
+  }
+}
+
 const imageFlow = (() => {
   let imageContainer = document.querySelector(".imageSlideContainer");
-  let increment = counter();
-  imageContainer.setAttribute("image", increment());
+  imageContainer.setAttribute("image", counter.increment());
+  threeDots();
   toggleImages();
   setInterval(function () {
-    imageContainer.setAttribute("image", increment());
+    imageContainer.setAttribute("image", counter.increment());
     toggleImages();
+    threeDots();
+    imgNumber();
   }, 3000);
 })();
-
-function counter() {
-  let slideCounter = 0;
-  return () => {
-    if (slideCounter === 3) {
-      slideCounter = 0;
-    }
-    slideCounter++;
-    return slideCounter;
-  };
-}
-//call counter
-//side = 0
-//return
-
-//make the function that increments
-//set attributes based on increment
-//make a function that places the images based on the imcrement
 
 function toggleImages() {
   let image1 = "../src/images/pyramid.jpg";
@@ -57,7 +86,19 @@ const imageSlider = (() => {
   let imageSlide = document.querySelector(".imageSlideContainer");
   let arrowLeft = document.querySelector(".arrow-left");
   let arrowRight = document.querySelector(".arrow-right");
-  arrowRight.addEventListener("click", () => {});
+  arrowRight.addEventListener("click", () => {
+    imageSlide.setAttribute("image", counter.increment());
+    toggleImages();
+    threeDots();
+    imgNumber();
+  });
+
+  arrowLeft.addEventListener("click", () => {
+    imageSlide.setAttribute("image", counter.deincrement());
+    toggleImages();
+    threeDots();
+    imgNumber();
+  });
 })();
 
 function toggleDropDown() {
