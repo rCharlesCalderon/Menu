@@ -1,5 +1,5 @@
 import _, { concat, toNumber } from "lodash";
-import html from "../dist/index.html";
+import html from "./dist/index.html";
 import "./style.css";
 
 const counter = (() => {
