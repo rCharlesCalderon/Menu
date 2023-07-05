@@ -1,5 +1,5 @@
 const path = require("path");
-import html from "../index.html";
+
 
 module.exports = {
   entry: "./src/index.js",

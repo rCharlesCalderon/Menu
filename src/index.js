@@ -1,5 +1,4 @@
 import _, { concat, toNumber } from "lodash";
-import html from "./dist/index.html";
 import "./style.css";
 
 const counter = (() => {
@@ -60,14 +59,20 @@ const imageFlow = (() => {
   imageContainer.setAttribute("image", counter.increment());
   threeDots();
   toggleImages();
-  let timer = setInterval(function () {
-    imageContainer.setAttribute("image", counter.increment());
-    toggleImages();
-    threeDots();
-    imgNumber();
+  //timer is passed into 102 and 111
+  let timer = setInterval(() => {
+    imageSlide();
   }, 3000);
   return { timer };
 })();
+
+function imageSlide() {
+  let imageContainer = document.querySelector(".imageSlideContainer");
+  imageContainer.setAttribute("image", counter.increment());
+  toggleImages();
+  threeDots();
+  imgNumber();
+}
 
 function toggleImages() {
   let image1 = "../src/images/pyramid.jpg";
@@ -94,6 +99,7 @@ const imageSlider = (() => {
     threeDots();
     imgNumber();
     clearInterval(imageFlow.timer);
+    imageFlow.timer = setInterval(imageSlide, 3000);
   });
 
   arrowLeft.addEventListener("click", () => {
@@ -102,6 +108,7 @@ const imageSlider = (() => {
     threeDots();
     imgNumber();
     clearInterval(imageFlow.timer);
+    imageFlow.timer = setInterval(imageSlide, 3000);
   });
 })();
 
