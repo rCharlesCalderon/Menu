@@ -1,3 +1,4 @@
+import _, { concat, toNumber } from "lodash";
 import "./style.css";
 
 const counter = (() => {
@@ -67,6 +68,7 @@ const imageFlow = (() => {
 
 function imageSlide() {
   let imageContainer = document.querySelector(".imageSlideContainer");
+  imageContainer.classList.add("fade-in-image");
   imageContainer.setAttribute("image", counter.increment());
   toggleImages();
   threeDots();
@@ -89,11 +91,11 @@ function toggleImages() {
 }
 
 const imageSlider = (() => {
-  let imageSlideContainer = document.querySelector(".imageSlideContainer");
+  let imageSlide = document.querySelector(".imageSlideContainer");
   let arrowLeft = document.querySelector(".arrow-left");
   let arrowRight = document.querySelector(".arrow-right");
   arrowRight.addEventListener("click", () => {
-    imageSlideContainer.setAttribute("image", counter.increment());
+    imageSlide.setAttribute("image", counter.increment());
     toggleImages();
     threeDots();
     imgNumber();
@@ -102,7 +104,7 @@ const imageSlider = (() => {
   });
 
   arrowLeft.addEventListener("click", () => {
-    imageSlideContainer.setAttribute("image", counter.deincrement());
+    imageSlide.setAttribute("image", counter.deincrement());
     toggleImages();
     threeDots();
     imgNumber();
