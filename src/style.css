@@ -4,6 +4,17 @@
     list-style-type: none;
 
 }
+
+
+@keyframes test {
+      0% { opacity: 0; };
+  100% { opacity: 1; };
+}
+
+.test1 {
+    animation-name: test;
+    animation-duration: 2s;
+}
 @font-face {
     font-family:Mukta;
     src: url("./fonts/Mukta-Regular.ttf");

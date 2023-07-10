@@ -60,6 +60,7 @@ const imageFlow = (() => {
   toggleImages();
   //timer is passed into 102 and 111
   let timer = setInterval(() => {
+    fadeAnimation();
     imageSlide();
   }, 3000);
   return { timer };
@@ -71,6 +72,12 @@ function imageSlide() {
   toggleImages();
   threeDots();
   imgNumber();
+}
+
+function fadeAnimation() {
+  let imageContainer = document.querySelector(".imageSlideContainer");
+  imageContainer.classList.remove("test1");
+  imageContainer.classList.add("test1");
 }
 
 function toggleImages() {
