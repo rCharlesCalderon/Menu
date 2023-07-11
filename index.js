@@ -66,6 +66,7 @@ const imageFlow = (() => {
 function imageSlide() {
   let imageContainer = document.querySelector(".imageSlideContainer");
   imageContainer.setAttribute("image", counter.increment());
+  fadeAnimation();
   toggleImages();
   threeDots();
   imgNumber();
@@ -87,11 +88,11 @@ function toggleImages() {
 }
 
 const imageSlider = (() => {
-  let imageSlide = document.querySelector(".imageSlideContainer");
+  let imageContainer = document.querySelector(".imageSlideContainer");
   let arrowLeft = document.querySelector(".arrow-left");
   let arrowRight = document.querySelector(".arrow-right");
   arrowRight.addEventListener("click", () => {
-    imageSlide.setAttribute("image", counter.increment());
+    imageContainer.setAttribute("image", counter.increment());
     toggleImages();
     threeDots();
     imgNumber();
@@ -100,7 +101,7 @@ const imageSlider = (() => {
   });
 
   arrowLeft.addEventListener("click", () => {
-    imageSlide.setAttribute("image", counter.deincrement());
+    imageContainer.setAttribute("image", counter.deincrement());
     toggleImages();
     threeDots();
     imgNumber();
@@ -121,4 +122,10 @@ function toggleArrow() {
   } else {
     arrow.src = "./images/menu-down.png";
   }
+}
+
+function fadeAnimation() {
+  let imageContainer = document.querySelector(".imageSlideContainer");
+  imageContainer.classList.remove("fade");
+  imageContainer.classList.add("fade");
 }
