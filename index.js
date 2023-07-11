@@ -1,6 +1,3 @@
-import _, { concat, toNumber } from "lodash";
-import "./style.css";
-
 const counter = (() => {
   let slideCounter = 0;
   function increment() {
@@ -75,9 +72,9 @@ function imageSlide() {
 }
 
 function toggleImages() {
-  let image1 = "../src/images/pyramid.jpg";
-  let image2 = "../src/images/stonehenge.png";
-  let image3 = "../src/images/castle.png";
+  let image1 = "./images/pyramid.jpg";
+  let image2 = "./images/stonehenge.png";
+  let image3 = "./images/castle.png";
   let imageArray = [image1, image2, image3];
   let imageContainer = document.querySelector(".imageSlideContainer");
   if (imageContainer.getAttribute("image") === "1") {
@@ -119,9 +116,9 @@ function toggleDropDown() {
 
 function toggleArrow() {
   let arrow = document.querySelector(".arrow");
-  if (arrow.getAttribute("src") === "../src/images/menu-down.png") {
-    arrow.src = "../src/images/menu-up.png";
+  if (arrow.getAttribute("src") === "./images/menu-down.png") {
+    arrow.src = "./images/menu-up.png";
   } else {
-    arrow.src = "../src/images/menu-down.png";
+    arrow.src = "./images/menu-down.png";
   }
 }
